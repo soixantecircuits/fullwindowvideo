@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+#awesome_video { position: absolute; top: 0; left: 0; width: 100%; height: 100%;  -webkit-transform: scaleX(2) scaleY(2); z-index:-1 } 
+.title{opacity:0.8; font-size:60px;z-index:18;font-family:'arial'}
+</style>
+</head>
+<body>
+<div class="title">This is just a title</div>
+<video id="awesome_video" controls>
+	<source src="01.m4v" type="video/mp4" autoplay />
+</video>
+<script type="text/javascript">
+  var index = 0,
+      playlist = ['space.m4v'],
+      video = document.getElementById('awesome_video');
+
+  video.addEventListener('ended', rotate_video, false);
+	
+	var pElement = document.getElementById("awesome_video");
+
+	pElement.load();
+	pElement.play();
+
+  function rotate_video() {
+    video.setAttribute('src', playlist[index]);
+    video.load();
+    index++;
+    if (index >= playlist.length) { index = 0; }
+  }
+</script>
+</body>
